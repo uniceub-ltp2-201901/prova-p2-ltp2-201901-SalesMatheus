@@ -17,7 +17,7 @@ def get_db(mysql):
 
 #insere url
 def url_cadastrar(conn,cursor, url_original):
-    print(url_original)
+
     cursor.execute(f'INSERT INTO prova2.url (original_url) VALUES ("{url_original}")')
     conn.commit()
 
