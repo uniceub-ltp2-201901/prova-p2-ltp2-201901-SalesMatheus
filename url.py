@@ -39,7 +39,7 @@ def principal():
     return render_template('index.html')
 
 # rota para salvar a alteração
-@app.route('/url')
+@app.route('/url' , methods=['GET','POST'])
 def salvar_url():
 
     # recuperar os parametros
@@ -61,13 +61,8 @@ def salvar_url():
     # Inserindo nova url no banco de daods
     update_nova_url(conn, cursor, id_url, url_nova)
 
-    # Fechar o cursor
-    cursor.close()
-    # Fechar a conexao
-    conn.close()
-
     # dar update na tabela
-    return render_template('index.html')
+    return render_template('index.html', nova_url = get_nova_url(id_url, cursor))
 
     #return redirect(url_for('index'))
 

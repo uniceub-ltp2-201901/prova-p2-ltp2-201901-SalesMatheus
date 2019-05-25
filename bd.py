@@ -18,7 +18,7 @@ def get_db(mysql):
 #insere url
 def url_cadastrar(conn,cursor, url_original):
     print(url_original)
-    cursor.execute(f'INSERT INTO prova2.url (original_url) VALUES ({url_original})')
+    cursor.execute(f'INSERT INTO prova2.url (original_url) VALUES ("{url_original}")')
     conn.commit()
 
 # Pega ID
@@ -38,3 +38,13 @@ def get_id_url(cursor):
 def update_nova_url(conn, cursor, id_url, url_nova):
     cursor.execute(f'update prova2.url SET nova_url = "{url_nova}" WHERE id_url = {id_url}')
     conn.commit()
+
+# Atualiza a tabela
+def get_nova_url(id_url, cursor):
+    cursor.execute(f'SELECT nova_url FROM prova2.url WHERE id_url = {id_url}')
+
+    # Recuperando o retorno do BD
+    id_url = cursor.fetchone()
+
+    # Retornar os dados
+    return id_url[0]

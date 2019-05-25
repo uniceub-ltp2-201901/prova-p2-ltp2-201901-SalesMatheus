@@ -276,6 +276,7 @@ input[type=text]:placeholder {
     <span style="color:red">{{erro}}</span><br>
 {% endif %}
 
+
 <div class="wrapper fadeInDown">
   <div id="formContent">
 
@@ -289,7 +290,11 @@ input[type=text]:placeholder {
       <input type="text" class="fadeIn second" name="url" placeholder="URL">
       <input type="submit" value="cadastrar">
     </form>
-
+      {% if nova_url %}
+          <form action="/url_novas" method="post">
+              <button><a href="#" url="url.html">Novas urls</a></button>
+          </form>
+      {% endif %}
   </div>
 </div>
 </body>
