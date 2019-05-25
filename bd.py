@@ -48,3 +48,14 @@ def get_nova_url(id_url, cursor):
 
     # Retornar os dados
     return id_url[0]
+
+# Pega ID
+def get_urls(cursor):
+
+    cursor.execute(f'SELECT nova_url FROM prova2.url')
+
+    # Recuperando o retorno do BD
+    urls = cursor.fetchall()
+
+    # Retornar os dados
+    return urls

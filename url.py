@@ -66,6 +66,14 @@ def salvar_url():
 
     #return redirect(url_for('index'))
 
+# Rota para listar todas urls
+@app.route('/urls_novas')
+def listar_urls():
+
+    cursor = mysql.get_db().cursor()
+    return render_template('url.html', urls=get_urls(cursor))
+
+
 
 # Rodando a app
 if __name__ == '__main__':
