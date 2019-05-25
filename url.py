@@ -54,7 +54,6 @@ def salvar_url():
     # retornando id da ultima url cadastrada
     id_url = get_id_url(cursor)
 
-
     # transformando em uma nova url
     url_nova = short_url.encode_url(id_url)
 
@@ -63,8 +62,6 @@ def salvar_url():
 
     # dar update na tabela
     return render_template('index.html', nova_url = get_nova_url(id_url, cursor))
-
-    #return redirect(url_for('index'))
 
 # Rota para listar todas urls
 @app.route('/urls_novas')

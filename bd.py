@@ -52,7 +52,7 @@ def get_nova_url(id_url, cursor):
 # Pega ID
 def get_urls(cursor):
 
-    cursor.execute(f'SELECT nova_url FROM prova2.url')
+    cursor.execute(f'SELECT nova_url, original_url FROM prova2.url')
 
     # Recuperando o retorno do BD
     urls = cursor.fetchall()

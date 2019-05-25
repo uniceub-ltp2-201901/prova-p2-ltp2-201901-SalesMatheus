@@ -9,11 +9,13 @@
 
     <table border="1">
         <tr>
-            <td>Novas URLS</td>
+            <td><b>URL Original</b></td>
+            <td><b>Nova URL</b></td>
         </tr>
 
         {% for url in urls %}
             <tr>
+                <td><a>{{url[1]}}</a></td>
                 <td><a>{{url[0]}}</a></td>
             </tr>
         {% endfor %}
