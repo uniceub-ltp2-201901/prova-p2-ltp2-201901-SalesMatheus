@@ -17,22 +17,6 @@ mysql.init_app(app)
 
 config(app)
 
-'''url = short_url.encode_url(12)
-
-print(url)
-
-key = short_url.decode_url(url)
-
-print (key)
-
-id = 2
-domain = '127.0.0.1:5000'
-
-shortened_url = "{}/{}".format(
-                                     domain,
-                                     short_url.encode_url(id)
-                               )
-'''
 # Rota para /
 @app.route('/')
 def principal():
@@ -60,7 +44,7 @@ def salvar_url():
     # Inserindo nova url no banco de daods
     update_nova_url(conn, cursor, id_url, url_nova)
 
-    # dar update na tabela
+    # redirecionando para index com botão de listagem de urls
     return render_template('index.html', nova_url = get_nova_url(id_url, cursor))
 
 # Rota para listar todas urls
